@@ -1,15 +1,20 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const TopRestrauntsData = require('./topRestraunts')
+const topRestaurants = require("./api/topRestaurants.js");
+const express = require("express");
+const app = express();
+const PORT = 3000;
 
 //Define routes
-app.get('/api/users',(req,res)=>{
-  console.log(TopRestrauntsData)
-  res.json(TopRestrauntsData)
-})
+app.get("/", (req, res) => {
+  res.send("This is the root path");
+});
+
+app.get("/api/getTopRestautants", (req, res) => {
+  res.json(topRestaurants);
+});
+
+app.get("/api/whatsonyourmind", () => {});
 
 //Start the server
-app.listen(port,()=>{
-    console.log("Server is running!!")
-})
+app.listen(PORT, () => {
+  console.log(`Server is running on port : ${PORT}`);
+});

@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const TopRestrauntsData = require('./topRestraunts')
 
 //Define routes
 app.get('/api/users',(req,res)=>{
-  const users = [{name:'divya', status:'high'},{name:'sakhi',status:'very high'}]
-  res.json(users)
+  console.log(TopRestrauntsData)
+  res.json(TopRestrauntsData)
 })
 
 //Start the server

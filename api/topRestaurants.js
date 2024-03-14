@@ -1,6 +1,6 @@
 const topRestaurants = [
   {
-    id: "bikanervala-sector-5-indira-nagar-lucknow-61689",
+    restaurantId: "bikanervala-sector-5-indira-nagar-lucknow-61689",
     imgUrl:
       "https://media-assets.swiggy.com/swiggy/image/uploa…fl_lossy,f_auto,q_auto,w_660/m4thufeyptbyg2qxcg8m",
     restrauntName: "Bikanervala",
@@ -10,7 +10,7 @@ const topRestaurants = [
     discount: "20% OFF UPTO 50",
   },
   {
-    id: "restaurants/alamgir-hotel-aminabad-lucknow-65084",
+    restaurantId: "restaurants/alamgir-hotel-aminabad-lucknow-65084",
     imgUrl:
       "https://media-assets.swiggy.com/swiggy/image/uploa…fl_lossy,f_auto,q_auto,w_660/ruczyhnam8hjwkkzgiwl",
     restrauntName: "Alamgir Hotel",
@@ -20,7 +20,7 @@ const topRestaurants = [
     discount: "₹125 OFF ABOVE ₹249 ",
   },
   {
-    id: "mughal-zaika-aminabad-aminabad-lucknow-65085",
+    restaurantId: "mughal-zaika-aminabad-aminabad-lucknow-65085",
     imgUrl:
       "https://media-assets.swiggy.com/swiggy/image/uploa…fl_lossy,f_auto,q_auto,w_660/yood4aumr1wbxed1odxk",
     restrauntName: "Mughal Zaika Aminabad",
@@ -30,7 +30,7 @@ const topRestaurants = [
     discount: "₹125 OFF ABOVE ₹249 ",
   },
   {
-    id: "red-dragon-chopstix-sector-c-mahanagar-lucknow-82387",
+    restaurantId: "red-dragon-chopstix-sector-c-mahanagar-lucknow-82387",
     imgUrl:
       "https://media-assets.swiggy.com/swiggy/image/uploa…fl_lossy,f_auto,q_auto,w_660/f6etwqizmuaxxe21vxmu",
     restrauntName: "Red Dragon (Chopstix)",
@@ -40,7 +40,7 @@ const topRestaurants = [
     discount: "₹125 OFF ABOVE ₹199",
   },
   {
-    id: "burger-king-hazratganj-lucknow-231204",
+    restaurantId: "burger-king-hazratganj-lucknow-231204",
     imgUrl:
       "https://media-assets.swiggy.com/swiggy/image/uploa…fl_lossy,f_auto,q_auto,w_660/m4thufeyptbyg2qxcg8m",
     restrauntName: "Burger King",
@@ -50,7 +50,7 @@ const topRestaurants = [
     discount: "Items at ₹129",
   },
   {
-    id: "pizza-hut-saharaganj-mall-hazratganj-lucknow-60379",
+    restaurantId: "pizza-hut-saharaganj-mall-hazratganj-lucknow-60379",
     imgUrl:
       "https://media-assets.swiggy.com/swiggy/image/uploa…uto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7",
     restrauntName: "Bikanervala",
@@ -60,7 +60,7 @@ const topRestaurants = [
     discount: "ITEMS at ₹179",
   },
   {
-    id: "mcdonalds-fun-republic-mall-gomti-nagar-lucknow-253774",
+    restaurantId: "mcdonalds-fun-republic-mall-gomti-nagar-lucknow-253774",
     imgUrl:
       "https://media-assets.swiggy.com/swiggy/image/uploa…uto,q_auto,w_660/535fc9f9c135f7982317bbb6a64a1ffc",
     restrauntName: "Bikanervala",
@@ -70,7 +70,7 @@ const topRestaurants = [
     discount: "20% OFF UPTO 50",
   },
   {
-    id: "la-pinoz-pizza-hazratganj-lucknow-89361",
+    restaurantId: "la-pinoz-pizza-hazratganj-lucknow-89361",
     imgUrl:
       "https://media-assets.swiggy.com/swiggy/image/uploa…fl_lossy,f_auto,q_auto,w_660/dek7ifvgfbnddngpqn4r",
     restrauntName: "La Pinoz's Pizza",
@@ -80,7 +80,7 @@ const topRestaurants = [
     discount: "20% OFF UPTO 50",
   },
   {
-    id: "radhey-lal-premium-sweets-chowk-lucknow-76869",
+    restaurantId: "radhey-lal-premium-sweets-chowk-lucknow-76869",
     imgUrl:
       "https://media-assets.swiggy.com/swiggy/image/uploa…fl_lossy,f_auto,q_auto,w_660/bzupoiynxjbgogvumixa",
     restrauntName: "Radhey Lal Premium Sweets",

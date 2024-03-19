@@ -1,3 +1,5 @@
  
 # Ignore node_modules directory
 node_modules/
+X509-cert-6554143162103357350.pem
+.env

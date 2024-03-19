@@ -1,23 +1,24 @@
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://divyamishra075%40gmail.com:Apple%2B1996%40@workspace.mongodb.net/FoodApp-DB"
+require('dotenv').config();
+const credentials = './X509-cert-6554143162103357350.pem'
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
+//connection configuration
+const client = new MongoClient(process.env.DATABASE_URL, {
+  tlsCertificateKeyFile: credentials,
+  serverApi: ServerApiVersion.v1
 });
 
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+    //retrieves a reference to the desired database 
     await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    const database = client.db("FoodApp-DB");
+    const collection = database.collection("topRestaurants");
+    const docCount = await collection.countDocuments({});
+    // it will console count of documents in the specified collection of db -- writenow it is coming as 0(todo)
+    console.log(docCount);
+    // perform actions using client
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();

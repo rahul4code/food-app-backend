@@ -1,27 +1,34 @@
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, MongoExpiredSessionError, ServerApiVersion } = require('mongodb');
 require('dotenv').config();
-const credentials = './X509-cert-6554143162103357350.pem'
-
-//connection configuration
-const client = new MongoClient(process.env.DATABASE_URL, {
-  tlsCertificateKeyFile: credentials,
-  serverApi: ServerApiVersion.v1
-});
+const credentials = './X509-cert-6554143162103357350.pem';
 
 async function run() {
-  try {
-    //retrieves a reference to the desired database 
-    await client.connect();
-    const database = client.db("FoodApp-DB");
-    const collection = database.collection("topRestaurants");
-    const docCount = await collection.countDocuments({});
-    // it will console count of documents in the specified collection of db -- writenow it is coming as 0(todo)
-    console.log(docCount);
-    // perform actions using client
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+    const client = new MongoClient(process.env.DATABASE_URL, {
+        tlsCertificateKeyFile: credentials,
+        serverApi: ServerApiVersion.v1
+    });
+
+    try {
+        await client.connect();
+        const database = client.db("FoodApp-DB");
+        const collection = database.collection("topRestaurants");
+
+        // Perform database operation using session
+        const documents = await collection.find({}).toArray();
+        console.log(documents);
+
+    } catch (error) {
+        // Handle MongoExpiredSessionError
+        if (error instanceof MongoExpiredSessionError) {
+            console.error("MongoDB session expired. Please retry operation with a new session.");
+            // Retry operation with a new session...
+        } else {
+            console.error("Error:", error);
+        }
+    } finally {
+        // Close the client connection
+        await client.close();
+    }
 }
-run().catch(console.dir);
+
+run().catch(console.error);

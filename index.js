@@ -15,7 +15,7 @@ async function run() {
 
         // Perform database operation using session
         const documents = await collection.find({}).toArray();
-        console.log(documents);
+        return documents
 
     } catch (error) {
         // Handle MongoExpiredSessionError

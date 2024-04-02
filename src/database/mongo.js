@@ -1,6 +1,7 @@
 // src/database/mongo.js
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
+const mongoose = require("mongoose");
 
 const credentials = './credentials/X509-cert-6554143162103357350.pem'; // Path to SSL certificate
 

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-restaurantVaritiesSchema = mongoose.Schema({
+const restaurantVaritiesSchema = mongoose.Schema({
   
         name:{
             type:String,
@@ -22,7 +22,7 @@ restaurantVaritiesSchema = mongoose.Schema({
        
     
 })
-
-const Varities = mongoose.model("Product", restaurantVaritiesSchema);
+//mongoose.model(<collectionName>,<collectionSchema>)
+const Varities = mongoose.model("restaurantVarities", restaurantVaritiesSchema);
 
 module.exports = Varities;

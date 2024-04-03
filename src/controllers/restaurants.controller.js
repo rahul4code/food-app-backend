@@ -1,11 +1,12 @@
 // src/controllers/topRestaurantsController.js
 const restaurantVaritiesModel = require("../models/restrauntVarities.model");
-const topRestaurants = require('../database/mongo')
+const topRestaurantsSchema = require('../models/topRestaurants.model')
 
 exports.getTopRestaurants = async (req, res) => {
   try {
-    const collectionName = await topRestaurants.getCollection("topRestaurants");
-    const collectionData =  collectionName.find({}).toArray();
+    console.log(collectionName,"collname")
+    const collectionName =  topRestaurantsSchema.getCollection("topRestaurants");
+    const collectionData =  await collectionName.find({}).toArray();
     res.status(200).json(collectionData);
   } catch (error) {
     console.error("Error fetching top restaurants:", error);

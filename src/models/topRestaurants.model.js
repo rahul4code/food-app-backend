@@ -24,4 +24,4 @@ restaurantId:{
 }
 })
 
-const topRestaurants =  mongoose.model(topRestaurants, topRestaurantsSchema)
+const topRestaurants =  mongoose.model("topRestaurants", topRestaurantsSchema)

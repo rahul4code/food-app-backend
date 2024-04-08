@@ -1,14 +1,14 @@
-// src/database/mongo.js
 const mongoose = require("mongoose");
-require("dotenv").config();
-const path = require('path');
-const credentials = path.resolve(__dirname, '../../credentials/X509-cert-6554143162103357350.pem');
+const path = require("path");
 
+const credentials = path.resolve(__dirname, process.env.CERT_PATH);
 
 async function connect() {
   try {
     await mongoose.connect(process.env.DATABASE_URL, {
-      tlsCertificateKeyFile: credentials
+      authMechanism: "MONGODB-X509",
+      appName: "workspace",
+      tlsCertificateKeyFile: credentials,
     });
     console.log("Connected to MongoDB");
   } catch (error) {
@@ -17,9 +17,19 @@ async function connect() {
   }
 }
 
+async function disconnect() {
+  try {
+    await mongoose.disconnect();
+    console.log("Disconnected from MongoDB");
+  } catch (error) {
+    console.error("Error disconnecting from MongoDB:", error);
+    throw new Error("Error disconnecting from MongoDB");
+  }
+}
+
 function getCollection(collectionName) {
-  console.log(collectionName,"mongocoll")
+  console.log(collectionName, "mongoCollection");
   return mongoose.connection.db.collection(collectionName);
 }
 
-module.exports = { connect, getCollection };
+module.exports = { connect, disconnect, getCollection };

@@ -28,7 +28,6 @@ async function disconnect() {
 }
 
 function getCollection(collectionName) {
-  console.log(collectionName, "mongoCollection");
   return mongoose.connection.db.collection(collectionName);
 }
 

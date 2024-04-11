@@ -1,6 +1,5 @@
 // Load environment variables from .env file if using dotenv
 require("dotenv").config();
-// src/app.js
 const express = require("express");
 const errorHandler = require("./src/middleware/errorHandler");
 const route = require("./src/routes/restaurants.route");

@@ -5,6 +5,7 @@ const restaurantVarietiesSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+
   image: {
     type: String,
     required: true,
@@ -20,9 +21,8 @@ const restaurantVarietiesSchema = mongoose.Schema({
 });
 //mongoose.model(<collectionName>,<collectionSchema>)
 const Varieties = mongoose.model(
-  "restaurantVarieties",
-  restaurantVarietiesSchema,
-  "restaurant_varieties"
+  "restaurant_varieties",
+  restaurantVarietiesSchema
 );
 
 module.exports = Varieties;

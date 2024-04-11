@@ -1,9 +1,6 @@
-// src/controllers/topRestaurantsController.js
-// const { json } = require("express");
 const restaurantVarietiesModel = require("../models/restaurantVarieties.model");
 const topRestaurantsModel = require("../models/topRestaurants.model");
 const mongo = require("../database/mongo");
-const mongoose = require("mongoose");
 
 exports.getTopRestaurants = async (req, res) => {
   try {

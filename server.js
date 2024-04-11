@@ -1,8 +1,8 @@
 // src/app.js
 const express = require("express");
-const errorHandler = require("./middleware/errorHandler");
-const route = require('./routes/restaurants.route')
-const mongo = require('./database/mongo')
+const errorHandler = require("./src/middleware/errorHandler");
+const route = require('./src/routes/restaurants.route')
+const mongo = require('./src/database/mongo')
 
 // Load environment variables from .env file if using dotenv
 require('dotenv').config();

@@ -4,10 +4,10 @@ const topRestaurantsSchema = mongoose.Schema({
 imgUrl:{
     type:String
 },
-restrauntName:{
+restaurantName:{
     type:String
 },
-restrauntAddress:{
+restaurantAddress:{
     type:String
 },
 cuisines:{
@@ -24,4 +24,5 @@ restaurantId:{
 }
 })
 
-const topRestaurants =  mongoose.model("topRestaurants", topRestaurantsSchema)
+const topRestaurants =  mongoose.model("top_restaurants", topRestaurantsSchema)
+module.exports = topRestaurants

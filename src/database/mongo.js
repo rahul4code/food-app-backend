@@ -18,7 +18,6 @@ async function connect() {
 }
 
 function getCollection(collectionName) {
-  console.log(collectionName,"mongocoll")
   return mongoose.connection.db.collection(collectionName);
 }
 

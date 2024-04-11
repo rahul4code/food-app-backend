@@ -11,7 +11,7 @@ router.get("/test", (req, res) => {
 
 router.get("/getTopRestaurants", RestaurantsController.getTopRestaurants);
 
-router.post("/foodVarities", RestaurantsController.foodVarities);
+router.post("/foodVarieties", RestaurantsController.foodVarieties);
 
 router.delete('deleteFood/:id/', RestaurantsController.deleteFood);
 

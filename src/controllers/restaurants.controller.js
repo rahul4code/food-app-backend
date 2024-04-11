@@ -1,24 +1,23 @@
 // src/controllers/topRestaurantsController.js
 const { json } = require("express");
-const restaurantVaritiesModel = require("../models/restrauntVarities.model");
+const restaurantVarietiesModel = require("../models/restaurantVarieties.model");
 const topRestaurantsModel = require('../models/topRestaurants.model')
 
 exports.getTopRestaurants = async (req, res) => {
   try {
   
     const collectionName =  await topRestaurantsModel.find({});
-    console.log(collectionName,"collname")
-   
+    
     res.status(200).json(collectionName);
   } catch (error) {
     console.error("Error fetching top restaurants:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
-exports.foodVarities = async(req,res)=>{
+exports.foodVarieties = async(req,res)=>{
   try{
-   const foodVarities = await restaurantVaritiesModel.create(req.body)
-   res.status(200).json(foodVarities)
+   const foodVarieties = await restaurantVarietiesModel.create(req.body)
+   res.status(200).json(foodVarieties)
   }catch(err){
     console.error(err)
     res.status(500).json({error:'internal server error'})

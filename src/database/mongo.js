@@ -27,8 +27,11 @@ async function disconnect() {
   }
 }
 
-function getCollection(collectionName) {
-  return mongoose.connection.db.collection(collectionName);
+async function getCollection(collectionName) {
+  const list = await mongoose.connection.db
+    .listCollections({ name: collectionName })
+    .toArray();
+  return list?.length > 0;
 }
 
 module.exports = { connect, disconnect, getCollection };

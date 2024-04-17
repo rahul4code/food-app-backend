@@ -1,6 +1,7 @@
 const restaurantVarietiesModel = require("../models/restaurantVarieties.model");
 const topRestaurantsModel = require("../models/topRestaurants.model");
 const mongo = require("../database/mongo");
+const restaurantTypeModel = require("../models/restaurantType.model");
 
 exports.getTopRestaurants = async (req, res) => {
   try {
@@ -61,5 +62,26 @@ exports.removeRestaurantVariety = async (req, res) => {
     res.status(500).json({ error: "internal server error" });
   } finally {
     await mongo.disconnect();
+  }
+};
+
+exports.getRestaurantTypes = async (req, res) => {
+  try {
+    await mongo.connect();
+    const isExist = await mongo.getCollection(
+      restaurantTypeModel.collection.name
+    );
+    if (isExist) {
+      const list = await restaurantTypeModel.find({});
+      res.status(200).json(list);
+    } else {
+      await restaurantTypeModel.create({});
+      res.status(200).json([]);
+    }
+  } catch (error) {
+    console.error("Error in fetching:", error);
+    res.status(500).json({ error: "Internal server error" });
+  } finally {
+    mongo.disconnect();
   }
 };

@@ -20,4 +20,5 @@ router.delete(
   RestaurantsController.removeRestaurantVariety
 );
 
+router.get("/getRestaurantTypes", RestaurantsController.getRestaurantTypes);
 module.exports = router;

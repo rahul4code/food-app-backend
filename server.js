@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const errorHandler = require("./src/middleware/errorHandler");
 const route = require("./src/routes/restaurants.route");
+const applyCORS = require("./src/middleware/cors");
 
 const app = express();
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.json()); // Body parser middleware
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded requests
 app.use(errorHandler); //error handling middleware
+app.use(applyCORS);
 
 // Use routes
 app.use("/api", route);

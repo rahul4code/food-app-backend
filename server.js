@@ -4,6 +4,7 @@ const express = require("express");
 const errorHandler = require("./src/middleware/errorHandler");
 const route = require("./src/routes/restaurants.route");
 const applyCORS = require("./src/middleware/cors");
+const mongo = require("./src/database/mongo");
 
 const app = express();
 
@@ -26,6 +27,12 @@ async function startServer() {
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
       console.log(`Server is running on port : ${PORT}`);
+    });
+    await mongo.connect();
+    // Close MongoDB connection when the server shuts down
+    process.on("SIGINT", () => {
+      mongo.disconnect();
+      process.exit();
     });
   } catch (err) {
     console.error("error in starting server", err);

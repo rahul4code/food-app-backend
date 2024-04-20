@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get("/getTopRestaurants", RestaurantsController.getTopRestaurants);
 
+router.post("/addTopRestaurants", RestaurantsController.addTopRestaurants);
+
 router.get(
   "/getRestaurantVarieties",
   RestaurantsController.getRestaurantVarieties

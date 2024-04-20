@@ -1,10 +1,21 @@
 const mongoose = require("mongoose");
 
+const aggregatedDiscountInfoV3Schema = mongoose.Schema({
+  header: String,
+  subHeader: String,
+});
+
 const topRestaurantsSchema = mongoose.Schema({
-  imgUrl: {
+  id: {
     type: String,
   },
-  restaurantName: {
+  cloudinaryImageId: {
+    type: String,
+  },
+  name: {
+    type: String,
+  },
+  areaName: {
     type: String,
   },
   restaurantAddress: {
@@ -13,15 +24,13 @@ const topRestaurantsSchema = mongoose.Schema({
   cuisines: {
     type: [String],
   },
-  avgRating: {
+  avgRatingString: {
     type: String,
   },
-  discount: {
+  slaString: {
     type: String,
   },
-  restaurantId: {
-    type: String,
-  },
+  aggregatedDiscountInfoV3: aggregatedDiscountInfoV3Schema,
 });
 
 module.exports = mongoose.model(
